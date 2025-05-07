@@ -1,13 +1,13 @@
 * Hopping Hare Demo
 
-This directory contains examples for demonstrating how to use Hopping Hare.
+This directory contains example for demonstrating how to use Hopping Hare.
 
 ** Quick Start
 
 Run the demo using just:
 
 #+begin_src sh
-cd examples/demo
+cd example/demo
 
 # Show available commands
 just

@@ -2,17 +2,17 @@
 default:
     @just --list
 
-# Run the demo in the examples/demo directory
+# Run the demo in the example/demo directory
 demo:
-    @cd examples/demo && just demo
+    @cd example/demo && just demo
 
 # Set up the demo environment
 setup:
-    @cd examples/demo && just setup
+    @cd example/demo && just setup
 
 # Clean up after the demo
 teardown:
-    @cd examples/demo && just teardown
+    @cd example/demo && just teardown
 
 # Build the hoppinghare binary
 build:

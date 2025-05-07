@@ -36,11 +36,11 @@ hoppinghare generate --template-url ~/templates/go-api --output-folder ~/my-new-
 
 ** Examples
 
-See the `examples/demo` directory for a full demonstration of Hopping Hare's capabilities:
+See the `example/demo` directory for a full demonstration of Hopping Hare's capabilities:
 
 #+begin_src sh
 # Run the demo (requires just command runner)
-cd examples/demo
+cd example/demo
 just demo
 
 # Or run individual commands
