@@ -1,0 +1,4 @@
+module {{.ProjectName}}
+
+go {{.GoVersion}}
+

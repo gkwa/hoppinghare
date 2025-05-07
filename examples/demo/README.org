@@ -1,0 +1,57 @@
+* Hopping Hare Demo
+
+This directory contains examples for demonstrating how to use Hopping Hare.
+
+** Quick Start
+
+Run the demo using just:
+
+#+begin_src sh
+cd examples/demo
+
+# Show available commands
+just
+
+# Run the full demo
+just demo
+
+# Run individual commands
+just generate-cli-vars
+just generate-with-file
+just generate-no-tests
+
+# Run a quick demo
+just quick-demo
+
+# Clean up
+just teardown
+#+end_src
+
+** Demo Files Structure
+
+- `justfile`: Contains all the demo commands
+- `templates/`: Contains example boilerplate templates
+  - `go-api/`: A simple Go API template
+  - `vars.yml`: Example variable file
+
+** Manual Usage
+
+You can also use these templates manually:
+
+#+begin_src sh
+# Generate using command line variables
+hoppinghare generate \
+  --template-url ./templates/go-api \
+  --output-folder ./output/my-project \
+  --var ProjectName=MyGoAPI \
+  --var GoVersion=1.24.2 \
+  --non-interactive
+
+# Generate using variable file
+hoppinghare generate \
+  --template-url ./templates/go-api \
+  --output-folder ./output/my-project \
+  --var-file ./templates/vars.yml \
+  --non-interactive
+#+end_src
+
