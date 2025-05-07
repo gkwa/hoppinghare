@@ -1,0 +1,50 @@
+# List available recipes (default)
+default:
+    @just --list
+
+# Set up the demo environment by creating required directories
+setup:
+    mkdir -p output
+    @echo "Setup complete. Output directory created."
+
+# Clean up the demo environment
+teardown:
+    rm -rf output
+    @echo "Cleanup complete. Output directory removed."
+
+# Run the complete demo
+demo: setup
+    ./scripts/run-demo.sh
+
+# Generate a project with command line variables
+generate-cli-vars: setup
+    hoppinghare generate \
+      --template-url ./templates/go-api \
+      --output-folder ./output/cli-vars \
+      --var ProjectName=MyGoAPI \
+      --var GoVersion=1.24.2 \
+      --non-interactive
+
+# Generate a project using a variable file
+generate-with-file: setup
+    hoppinghare generate \
+      --template-url ./templates/go-api \
+      --output-folder ./output/var-file \
+      --var-file ./templates/vars.yml \
+      --non-interactive
+
+# Generate a project without tests
+generate-no-tests: setup
+    hoppinghare generate \
+      --template-url ./templates/go-api \
+      --output-folder ./output/no-tests \
+      --var ProjectName=NoTestsAPI \
+      --var IncludeTests=false \
+      --non-interactive
+
+# Run a complete generate-verify-clean cycle
+quick-demo: setup generate-cli-vars
+    @ls -la ./output/cli-vars
+    @cat ./output/cli-vars/README.md
+    @echo "Demo complete. Run 'just teardown' to clean up."
+

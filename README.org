@@ -1,0 +1,58 @@
+* Hopping Hare
+
+A tool for generating project files using Gruntwork's Boilerplate as a library.
+
+** Cheatsheet
+
+#+begin_src sh
+# Generate a project from a template
+hoppinghare generate --template-url PATH --output-folder PATH [--var NAME=VALUE] [--var-file FILE]
+
+# List available templates
+hoppinghare list-templates --template-dir DIRECTORY
+
+# Show version information
+hoppinghare version
+#+end_src
+
+** Installation
+
+#+begin_src sh
+go install github.com/gkwa/hoppinghare@latest
+#+end_src
+
+** Quick Start
+
+#+begin_src sh
+# Generate a project from a template
+hoppinghare generate --template-url ~/templates/go-api --output-folder ~/my-new-project
+
+# Generate with custom variables
+hoppinghare generate --template-url ~/templates/go-api --output-folder ~/my-new-project --var "ProjectName=MyAPI" --var "GoVersion=1.20"
+
+# Generate with variables from a file
+hoppinghare generate --template-url ~/templates/go-api --output-folder ~/my-new-project --var-file vars.yml
+#+end_src
+
+** Examples
+
+See the `examples/demo` directory for a full demonstration of Hopping Hare's capabilities:
+
+#+begin_src sh
+# Run the demo (requires just command runner)
+cd examples/demo
+just demo
+
+# Or run individual commands
+just generate-cli-vars
+just generate-with-file
+#+end_src
+
+To install Just:
+#+begin_src sh
+# MacOS
+brew install just
+
+# Linux
+curl --proto '=https' --tlsv1.2 -sSf https://just.systems/install.sh | bash -s -- --to /usr/local/bin
+#+end_src
